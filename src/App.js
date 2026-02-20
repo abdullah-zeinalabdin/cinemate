@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './navbar/Navbar';
+import Box from '@mui/material/Box';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="App" >
+      <Box sx={{
+        height: '100vh',
+        display: 'flex',
+        bgcolor: 'background.default',
+        overflow: 'hidden',
+      }}>
+        <Box 
+          sx={{
+            width: {xs: 72, sm: 280},
+            flexShrink: 0,
+            boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.6)',
+            transition: '0.3s',
+            '&:hover': {
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.08), 0 8px 30px rgba(0,0,0,0.8)'
+            }
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <Navbar />
+        </Box>
+        <Box sx={{ flexGrow: 1 }}>
+        
+        </Box>
+      </Box>
     </div>
   );
 }

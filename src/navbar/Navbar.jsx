@@ -7,6 +7,7 @@ import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import PersonIcon from '@mui/icons-material/Person';
 import Box from '@mui/material/Box';
 /* === MUI Imports === */
 
@@ -28,6 +29,7 @@ export default function Navbar() {
                 <NavItem icon={<OndemandVideoIcon />} label={'TV Shows'} />
                 <NavItem icon={<FavoriteIcon />} label={'Favorites'} />
                 <NavItem icon={<WatchLaterIcon />} label={'Watchlist'} />
+                <NavItem icon={<PersonIcon />} label={'Profile'} />
             </Stack>
         </Stack>
     );

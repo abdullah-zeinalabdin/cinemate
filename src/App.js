@@ -1,4 +1,5 @@
 import './App.css';
+import Landing from './landing/Landing';
 import Navbar from './navbar/Navbar';
 import Box from '@mui/material/Box';
 
@@ -26,7 +27,7 @@ function App() {
           <Navbar />
         </Box>
         <Box sx={{ flexGrow: 1 }}>
-        
+          <Landing />
         </Box>
       </Box>
     </div>

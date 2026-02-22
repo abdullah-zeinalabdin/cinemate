@@ -43,7 +43,7 @@ let theme = createTheme({
         h3: {
             fontFamily: 'poppins',
             fontWeight: 600,
-            fontSize: '0.8rem',
+            fontSize: '2rem',
             '@media (min-width:600px)': { fontSize: '2.5rem'}
         },
         h4: {

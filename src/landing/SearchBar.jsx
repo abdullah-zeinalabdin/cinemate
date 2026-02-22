@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 /* === MUI Imports === */
 export default function SearchBar() {
     return (
-        <Stack direction='row' spacing={2}>
+        <Stack direction='row' spacing={2} mb={5}>
             <TextField
                         sx={
                             {

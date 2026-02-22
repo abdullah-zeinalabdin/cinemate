@@ -8,10 +8,9 @@ function App() {
   return (
     <div className="App" >
       <Box sx={{
-        height: '100vh',
+        minHeight: '100vh',
         display: 'flex',
         bgcolor: 'background.default',
-        overflow: 'hidden',
       }}>
         <Box 
           sx={{
@@ -26,7 +25,7 @@ function App() {
         >
           <Navbar />
         </Box>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, overflowY: 'auto'}}>
           <Landing />
         </Box>
       </Box>

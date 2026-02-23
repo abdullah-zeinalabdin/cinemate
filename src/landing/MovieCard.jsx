@@ -1,14 +1,14 @@
-import Stack from "@mui/material/Stack";
 import Box from '@mui/material/Box';
 
 export default function MovieCard() {
     return (
             <Box 
-                component='img'
+                component='div'
                 sx={{
                     minWidth: '300px',
                     height: '150px',
-                    bgcolor: 'primary.main'
+                    bgcolor: 'primary.main',
+                    borderRadius: '6px',
                 }}
             >
             </Box>

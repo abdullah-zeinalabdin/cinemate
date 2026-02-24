@@ -1,22 +1,32 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import MovieCardContainer from "./MovieCardContainer";
-export default function MovieRow() {
-
+import { useSelector } from "react-redux";
+export default function MovieRow() {    
+    const topRatedCinema = useSelector((state) => {
+        return state.cinemate.topRated.results;
+    });
+    const popularCinema = useSelector((state) => {
+        console.log(state.cinemate.popular.results);
+        return state.cinemate.popular.results;
+    });
+    const upcomingCinema = useSelector((state) => {
+        return state.cinemate.upcoming.results;
+    });
     return (
         <Stack direction='column' spacing={2}>
             <Typography variant="h3" color="text.primary">
                 Popular Now
             </Typography>
-            <MovieCardContainer />
+            <MovieCardContainer movies={popularCinema}/>
             <Typography variant="h3" color="text.primary">
-                Trending Now
+                Top Rated
             </Typography>
-            <MovieCardContainer />
+            <MovieCardContainer movies={topRatedCinema}/>
             <Typography variant="h3" color="text.primary">
                 Upcoming
             </Typography>
-            <MovieCardContainer />
+            <MovieCardContainer movies={upcomingCinema}/>
         </Stack>
     )
 }

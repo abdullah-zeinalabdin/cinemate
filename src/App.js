@@ -2,7 +2,7 @@ import './App.css';
 import Landing from './landing/Landing';
 import Navbar from './navbar/Navbar';
 import Box from '@mui/material/Box';
-
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -29,6 +29,12 @@ function App() {
           <Landing />
         </Box>
       </Box>
+
+      {/* Routes */}
+      <Routes>
+        <Route path='/movies' element={''}/>
+      </Routes>
+      {/* === Routes === */}
     </div>
   );
 }

@@ -4,14 +4,13 @@ import MovieCardContainer from "./MovieCardContainer";
 import { useSelector } from "react-redux";
 export default function MovieRow() {    
     const topRatedCinema = useSelector((state) => {
-        return state.cinemate.topRated.results;
+        return state.cinemate.movies['topRated'];
     });
     const popularCinema = useSelector((state) => {
-        console.log(state.cinemate.popular.results);
-        return state.cinemate.popular.results;
+        return state.cinemate.TV['popular'];
     });
     const upcomingCinema = useSelector((state) => {
-        return state.cinemate.upcoming.results;
+        return state.cinemate.movies['upcoming'];
     });
     return (
         <Stack direction='column' spacing={2}>

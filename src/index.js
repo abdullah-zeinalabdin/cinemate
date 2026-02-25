@@ -21,12 +21,17 @@ import '@fontsource/poppins/900.css';
 import { store } from './redux/store.jsx';
 import { Provider } from 'react-redux';
 /* === Redux Toolkit Setup === */
+/* Import React Router */
+import { BrowserRouter } from 'react-router-dom';
+/* === Import React Router === */
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

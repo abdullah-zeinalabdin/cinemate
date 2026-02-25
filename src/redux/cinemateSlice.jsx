@@ -1,6 +1,61 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+/* Movies Thunk */
+export const fetchTopRatedMoviesApi = createAsyncThunk("topRatedMoviesThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+export const fetchUpcomingMoviesApi = createAsyncThunk("upcomingMoviesThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+export const fetchPopularMoviesApi = createAsyncThunk("popularMoviesThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+export const fetchNowPlayingMoviesApi = createAsyncThunk("nowPlayingMoviesThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+/* === Movies Thunk === */
 
-export const fetchTopRatedApi = createAsyncThunk("topRatedThunkFunction", async (url) => {
+/* TV Thunk */
+export const fetchPopularTVApi = createAsyncThunk("popularTVThunkFunction", async (url) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -10,9 +65,10 @@ export const fetchTopRatedApi = createAsyncThunk("topRatedThunkFunction", async 
     if (!response.ok) {
         throw new Error('TMDB fetch failed');
     }
-    return response.json();
+    const data = await response.json();
+    return data.results;
 });
-export const fetchPopularApi = createAsyncThunk("popularThunkFunction", async (url) => {
+export const fetchTopRatedTVApi = createAsyncThunk("topRatedTVThunkFunction", async (url) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -22,9 +78,10 @@ export const fetchPopularApi = createAsyncThunk("popularThunkFunction", async (u
     if (!response.ok) {
         throw new Error('TMDB fetch failed');
     }
-    return response.json();
+    const data = await response.json();
+    return data.results;
 });
-export const fetchUpcomingApi = createAsyncThunk("upcomingThunkFunction", async (url) => {
+export const fetchOnTheAirTVApi = createAsyncThunk("onTheAirTVThunkFunction", async (url) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -34,27 +91,66 @@ export const fetchUpcomingApi = createAsyncThunk("upcomingThunkFunction", async 
     if (!response.ok) {
         throw new Error('TMDB fetch failed');
     }
-    return response.json();
+    const data = await response.json();
+    return data.results;
 });
+export const fetchAiringTodayTVApi = createAsyncThunk("airingTodayTVThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+/* === TV Thunk === */
 const cinemateSlice = createSlice({
     name: 'cinemate',
     initialState: {
-        popular: [],
-        topRated: [],
-        upcoming: [],
+        TV: {
+            topRated: [],
+            popular: [],
+            onTheAir: [],
+            airingToday: [],
+        },
+        movies: {
+            topRated: [],
+            popular: [],
+            upcoming: [],
+            nowPlaying: [],
+        },
     },
     reducers: {
     },
     extraReducers(builder) {
         builder
-        .addCase(fetchTopRatedApi.fulfilled, (state, action) => {
-            state.topRated = action.payload;
+        .addCase(fetchTopRatedMoviesApi.fulfilled, (state, action) => {
+            state.movies['topRated'] = action.payload;
         })
-        .addCase(fetchPopularApi.fulfilled, (state, action) => {
-            state.popular = action.payload;
+        .addCase(fetchUpcomingMoviesApi.fulfilled, (state, action) => {
+            state.movies['upcoming'] = action.payload;
         })
-        .addCase(fetchUpcomingApi.fulfilled, (state, action) => {
-            state.upcoming = action.payload;
+        .addCase(fetchPopularMoviesApi.fulfilled, (state, action) => {
+            state.movies['popular'] = action.payload;
+        })
+        .addCase(fetchNowPlayingMoviesApi.fulfilled, (state, action) => {
+            state.movies['nowPlaying'] = action.payload;
+        })
+        .addCase(fetchPopularTVApi.fulfilled, (state, action) => {
+            state.TV['popular'] = action.payload;
+        })
+        .addCase(fetchTopRatedTVApi.fulfilled, (state, action) => {
+            state.TV['topRated'] = action.payload;
+        })
+        .addCase(fetchOnTheAirTVApi.fulfilled, (state, action) => {
+            state.TV['onTheAir'] = action.payload;
+        })
+        .addCase(fetchAiringTodayTVApi.fulfilled, (state, action) => {
+            state.TV['airingToday'] = action.payload;
         })
     }
 });

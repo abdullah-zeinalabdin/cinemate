@@ -6,9 +6,9 @@ export default function MovieCard({src}) {
                 component='img'
                 src={src}
                 sx={{
-                    minWidth: '300px',
-                    height: '180px',
-                    bgcolor: 'primary.main',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                     borderRadius: '6px',
                     cursor: 'pointer'
                 }}

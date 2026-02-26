@@ -24,7 +24,7 @@ export default function Landing() {
         dispatch(fetchOnTheAirTVApi(`https://api.themoviedb.org/3/tv/on_the_air`));
         dispatch(fetchTopRatedTVApi(`https://api.themoviedb.org/3/tv/top_rated`));
         /* === TV === */
-    }, []);
+    }, [dispatch]);
     return (
         <Stack direction='column' p={5}>
             <SearchBar />

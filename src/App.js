@@ -2,12 +2,12 @@ import './App.css';
 import Landing from './landing/Landing';
 import Navbar from './navbar/Navbar';
 import Box from '@mui/material/Box';
-import { Routes, Route } from 'react-router-dom';
+import MoviesDiscovery from './sidePages/MoviesDiscovery.jsx';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
-function App() {
+function Layout() {
   return (
-    <div className="App" >
-      <Box sx={{
+    <Box sx={{
         minHeight: '100vh',
         display: 'flex',
         bgcolor: 'background.default',
@@ -26,17 +26,25 @@ function App() {
           <Navbar />
         </Box>
         <Box sx={{ flexGrow: 1, overflowY: 'auto'}}>
-          <Landing />
+          <Outlet />
         </Box>
       </Box>
+  );
+}
 
+function App() {
+  return (
+    <div className="App" >
       {/* Routes */}
       <Routes>
-        <Route path='/movies' element={''}/>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Landing />}/>
+          <Route path='/movies' element={<MoviesDiscovery />}/>  
+        </Route>
       </Routes>
       {/* === Routes === */}
     </div>
-  );
+  )
 }
 
 export default App;

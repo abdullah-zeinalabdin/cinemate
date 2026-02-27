@@ -4,12 +4,26 @@ import Stack from "@mui/material/Stack";
 import SearchBar from "./SearchBar";
 import MovieRow from "./MovieRow";
 /* Redux Imports */
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { fetchTopRatedMoviesApi, fetchPopularMoviesApi, fetchUpcomingMoviesApi, fetchNowPlayingMoviesApi, fetchPopularTVApi, fetchAiringTodayTVApi, fetchOnTheAirTVApi, fetchTopRatedTVApi } from "../redux/cinemateSlice";
 import { useEffect } from "react";
 /* === Redux Imports === */
 
 export default function Landing() {
+    const popularCinema = useSelector((state) => {
+        return state.cinemate.TV['popular'];
+    });
+    const topRatedCinema = useSelector((state) => {
+        return state.cinemate.movies['topRated'];
+    });
+    const upcomingCinema = useSelector((state) => {
+        return state.cinemate.movies['upcoming'];
+    });
+    const movieRowArr = [
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema},
+    ];
     const dispatch = useDispatch();
     useEffect(() => {
         /* Movies */
@@ -28,7 +42,7 @@ export default function Landing() {
     return (
         <Stack direction='column' p={5}>
             <SearchBar />
-            <MovieRow />
+            <MovieRow movieRowArr={movieRowArr}/>
         </Stack>
     )
 }

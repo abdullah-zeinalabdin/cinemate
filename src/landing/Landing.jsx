@@ -1,7 +1,7 @@
 /* MUI Imports */
 import Stack from "@mui/material/Stack";
 /* === MUI Imports === */
-import SearchBar from "./SearchBar";
+import SearchBar from "../search/SearchBar";
 import MovieRow from "./MovieRow";
 /* Redux Imports */
 import { useDispatch, useSelector} from 'react-redux';

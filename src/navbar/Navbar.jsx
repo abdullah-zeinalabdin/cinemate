@@ -23,7 +23,7 @@ export default function Navbar() {
     return (
         <Stack sx={{bgcolor: 'background.paper', minHeight: '100%'}} p={{xs: 0, sm: 3}}>
             <Typography textAlign='center' variant="h1" color='primary.main' mb={8}>
-                    <Box component='span' sx={{display: {xs: 'none', sm: 'initial'}}}> 
+                    <Box component='span' sx={{display: {xs: 'none', sm: 'initial'}, userSelect: 'none'}}> 
                         CINEMATE
                     </Box>
                     <Box component='span' sx={{display: {xs: 'initial', sm: 'none'}}}> 

@@ -108,6 +108,21 @@ export const fetchAiringTodayTVApi = createAsyncThunk("airingTodayTVThunkFunctio
     return data.results;
 });
 /* === TV Thunk === */
+/* Search Thunk */
+export const fetchSearchResults = createAsyncThunk("resultsThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data.results;
+});
+/* === Search Thunk === */
 const cinemateSlice = createSlice({
     name: 'cinemate',
     initialState: {
@@ -122,6 +137,9 @@ const cinemateSlice = createSlice({
             popular: [],
             upcoming: [],
             nowPlaying: [],
+        },
+        search: {
+            list: [],
         },
     },
     reducers: {
@@ -151,6 +169,9 @@ const cinemateSlice = createSlice({
         })
         .addCase(fetchAiringTodayTVApi.fulfilled, (state, action) => {
             state.TV['airingToday'] = action.payload;
+        })
+        .addCase(fetchSearchResults.fulfilled, (state, action) => {
+            state.search['list'] = action.payload;
         })
     }
 });

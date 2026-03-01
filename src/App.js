@@ -4,6 +4,7 @@ import Navbar from './navbar/Navbar';
 import Box from '@mui/material/Box';
 import MoviesDiscovery from './sidePages/MoviesDiscovery.jsx';
 import TvDiscovery from './sidePages/TvDiscovery.jsx';
+import SearchPage from './search/SearchPage.jsx';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 function Layout() {
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<Landing />}/>
           <Route path='/movies' element={<MoviesDiscovery />}/>  
           <Route path='/tv' element={<TvDiscovery />} />
+          <Route path='/search' element={<SearchPage />} />
         </Route>
       </Routes>
       {/* === Routes === */}

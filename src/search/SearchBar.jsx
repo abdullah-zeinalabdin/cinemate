@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 /* === MUI Imports === */
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchSearchResults } from '../redux/cinemateSlice';
 import { Link } from 'react-router-dom';
 export default function SearchBar() {

@@ -1,0 +1,27 @@
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
+export default function MovieSection({title, overview, posterSrc}) {
+    return (
+        <Stack spacing={5} >
+            <Stack direction={{xs: 'column', sm:'row'}} sx={{'&:hover': { bgcolor: 'text.hover' }, transition: '0.3s', cursor: 'pointer', alignItems: 'center' }}>
+                <Box sx={{height: '220px', aspectRatio: 2 / 3,}}>
+                    <Box component='img'
+                    sx={{height:'100%', objectFit: 'cover', borderRadius: '6px'}} 
+                    src={`https://image.tmdb.org/t/p/w500/${posterSrc}`}
+                    alt="poster"
+                    color='text.primary'
+                    />
+                </Box>
+                <Stack p={2} spacing={2} justifyContent={'center'}>
+                    <Typography variant="h3" color='text.primary'>{title}</Typography>
+                    <Typography variant="h4" color='text.secondary'>{overview}</Typography>
+                </Stack>
+                
+            </Stack>
+            <Divider sx={{bgcolor: 'primary.main', width: '80%', alignSelf: 'center'}}/>
+        </Stack>
+    )
+}

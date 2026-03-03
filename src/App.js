@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import MoviesDiscovery from './sidePages/MoviesDiscovery.jsx';
 import TvDiscovery from './sidePages/TvDiscovery.jsx';
 import SearchPage from './search/SearchPage.jsx';
+import CinemaDetailsPage from './detailsPages/cinemaDetails/CinemaDetailsPage.jsx';
 import { Routes, Route, Outlet } from 'react-router-dom';
 
 function Layout() {
@@ -44,6 +45,7 @@ function App() {
           <Route path='/movies' element={<MoviesDiscovery />}/>  
           <Route path='/tv' element={<TvDiscovery />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='cinema/:mediaType/:id' element={<CinemaDetailsPage />} />
         </Route>
       </Routes>
       {/* === Routes === */}

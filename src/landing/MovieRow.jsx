@@ -11,7 +11,7 @@ export default function MovieRow({movieRowArr}) {
                         <Typography variant="h3" color="text.primary">
                             {section.sectionLabel}
                         </Typography>
-                        <MovieCardContainer movies={section.movies}/>
+                        <MovieCardContainer movies={section.movies} mediaType={section.mediaType}/>
                     </Fragment>
                 )
             })};

@@ -15,10 +15,10 @@ export default function MoviesDisovery() {
         return state.cinemate.movies['nowPlaying'];
     });
     const movieRowArr = [
-        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema},
-        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema},
-        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema},
-        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema}
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'movie'},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie'},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie'},
+        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema, mediaType: 'movie'}
     ];
     return (
         <Stack p={5}>

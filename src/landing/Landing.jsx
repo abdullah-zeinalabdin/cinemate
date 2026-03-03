@@ -20,9 +20,9 @@ export default function Landing() {
         return state.cinemate.movies['upcoming'];
     });
     const movieRowArr = [
-        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema},
-        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema},
-        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema},
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'tv'},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie'},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie'},
     ];
     const dispatch = useDispatch();
     useEffect(() => {

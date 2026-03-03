@@ -12,7 +12,6 @@ export default function CinemaDetailsPage() {
         mediaType === 'movie' ? dispatch(fetchCinemaDetails(`https://api.themoviedb.org/3/movie/${id}`)) : dispatch(fetchCinemaDetails(`https://api.themoviedb.org/3/tv/${id}`)) 
     }, [dispatch, mediaType, id]);
     const details = useSelector((state) => {
-        console.log(state.cinemate)
         return state.cinemate.cinemaDetails;
     });
     return (

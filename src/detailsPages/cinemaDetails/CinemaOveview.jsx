@@ -1,17 +1,20 @@
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
-import Typography from "@mui/material/Typography";
+import OverviewHeader from "./OverviewHeader";
+import Ratings from "./Ratings";
+import OverviewSection from "./OverviewSection";
 export default function CinemaOverview() {
     const poster = useSelector((state) => state.cinemate.cinemaDetails.poster_path);
-    const title = useSelector((state) => state.cinemate.cinemaDetails?.title || state.cinemate.cinemaDetails?.name);
-    const date = useSelector((state) => state.cinemate.cinemaDetails?.release_date || state.cinemate.cinemaDetails?.first_air_date );
-    const year = date?.slice(0, 4) ?? '-';
     return (
-        <Stack direction='row' p={5} sx={{position: 'relative', zIndex: 1}}>
+        <Stack direction={{xs: 'column-reverse', md: 'row'}} spacing={4} p={5} sx={{position: 'relative', zIndex: 1}} alignItems={{xs: 'center'}}>
             <Box
             sx={{
-                    height: '480px',
+                    width: {
+                        xs: 240,
+                        sm: 280,
+                        md: 320,
+                    },
                     aspectRatio: 2 / 3,
                 }}
             >
@@ -28,10 +31,9 @@ export default function CinemaOverview() {
                 />
             </Box>
             <Stack>
-                <Stack spacing={2} direction='row' alignItems='center'>
-                    <Typography color='text.primary' variant="h2">{title}</Typography>
-                    <Typography color='text.secondary' variant="h3">({year})</Typography>
-                </Stack>
+                <OverviewHeader />
+                <Ratings />
+                <OverviewSection />
             </Stack>
         </Stack>
     )

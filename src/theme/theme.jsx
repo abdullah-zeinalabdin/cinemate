@@ -37,7 +37,7 @@ let theme = createTheme({
         h2: {
             fontFamily: 'poppins',
             fontWeight: 700,
-            fontSize: '0.8rem',
+            fontSize: '2rem',
             '@media (min-width:600px)': { fontSize: '2.5rem'}
         },
         h3: {
@@ -50,6 +50,12 @@ let theme = createTheme({
             fontFamily: 'poppins',
             fontWeight: 500,
             fontSize: '0.8rem',
+        },
+        h5: {
+            fontFamily: 'poppins',
+            fontWeight: 600,
+            fontSize: '1.5rem',
+            '@media (min-width:600px)': { fontSize: '0.8rem'}
         },
         button: {
             fontFamily: 'poppins',

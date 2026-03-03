@@ -12,6 +12,7 @@ export default function CinemaDetailsPage() {
         mediaType === 'movie' ? dispatch(fetchCinemaDetails(`https://api.themoviedb.org/3/movie/${id}`)) : dispatch(fetchCinemaDetails(`https://api.themoviedb.org/3/tv/${id}`)) 
     }, [dispatch, mediaType, id]);
     const details = useSelector((state) => {
+        console.log(state.cinemate)
         return state.cinemate.cinemaDetails;
     });
     return (
@@ -29,7 +30,7 @@ export default function CinemaDetailsPage() {
                 sx={{
                     position: 'absolute',
                     inset: 0,
-                    bgcolor: 'rgba(0,0,0,0.6)'
+                    bgcolor: 'rgba(0,0,0,0.8)'
                 }}
                 /> 
                 <CinemaOverview />

@@ -137,6 +137,19 @@ export const fetchCinemaDetails = createAsyncThunk("CinemaDetailsThunkFunction",
     const data = await response.json();
     return data;
 });
+export const fetchCinemaCast = createAsyncThunk("CinemaCastThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data;
+});
 /* === Find Thunk === */
 const cinemateSlice = createSlice({
     name: 'cinemate',
@@ -157,6 +170,7 @@ const cinemateSlice = createSlice({
             list: [],
         },
         cinemaDetails: {},
+        castDetails: {},
     },
     reducers: {
     },
@@ -191,6 +205,9 @@ const cinemateSlice = createSlice({
         })
         .addCase(fetchCinemaDetails.fulfilled, (state, action) => {
             state.cinemaDetails = action.payload;
+        })
+        .addCase(fetchCinemaCast.fulfilled, (state, action) => {
+            state.castDetails = action.payload;
         })
     }
 });

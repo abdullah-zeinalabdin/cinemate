@@ -10,7 +10,7 @@ export default function OverviewHeader() {
         <>
             <Stack spacing={2} direction='row' alignItems='center'>
                     <Typography color='text.primary' variant="h2">{title}</Typography>
-                    <Typography color='text.secondary' variant="h3">({year})</Typography>
+                    <Typography color='text.secondary' variant="h3">{year}</Typography>
             </Stack>
             <Stack direction='row' color='text.secondary' mb={2} spacing={2}>
                     {genres?.map((genre) => {

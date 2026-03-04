@@ -150,6 +150,32 @@ export const fetchCinemaCast = createAsyncThunk("CinemaCastThunkFunction", async
     const data = await response.json();
     return data;
 });
+export const fetchActorDetails = createAsyncThunk("ActorDetailsThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data;
+});
+export const fetchActorCredits = createAsyncThunk("ActorCreditsThunkFunction", async (url) => {
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
+        }
+    });
+    if (!response.ok) {
+        throw new Error('TMDB fetch failed');
+    }
+    const data = await response.json();
+    return data;
+});
 /* === Find Thunk === */
 const cinemateSlice = createSlice({
     name: 'cinemate',
@@ -171,6 +197,8 @@ const cinemateSlice = createSlice({
         },
         cinemaDetails: {},
         castDetails: {},
+        actorDetails: {},
+        actorCredits: {},
     },
     reducers: {
     },
@@ -208,6 +236,12 @@ const cinemateSlice = createSlice({
         })
         .addCase(fetchCinemaCast.fulfilled, (state, action) => {
             state.castDetails = action.payload;
+        })
+        .addCase(fetchActorDetails.fulfilled, (state, action) => {
+            state.actorDetails = action.payload;
+        })
+        .addCase(fetchActorCredits.fulfilled, (state, action) => {
+            state.actorCredits = action.payload;
         })
     }
 });

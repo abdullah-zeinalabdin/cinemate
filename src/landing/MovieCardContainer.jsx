@@ -9,7 +9,7 @@ export default function MovieCardContainer({movies = [], mediaType}) {
             {movies?.map((top) => {
                 return (
                     <Box 
-                        key={top.id}   
+                        key={`${top.id}-${mediaType}`}   
                         sx={{
                             height: '280px',
                             aspectRatio: 2 / 3,

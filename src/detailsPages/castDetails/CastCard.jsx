@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
@@ -6,10 +7,21 @@ import { useSelector } from "react-redux";
 export default function CastCard() {
     const castArr = useSelector((state) => state.cinemate?.castDetails.cast)
     return (
-        <Stack direction='row' sx={{overflowX: 'scroll', scrollbarWidth: 'none'}} spacing={4}>
+        <Stack 
+        direction='row' 
+        sx={{overflowX: 'scroll', scrollbarWidth: 'none'}} 
+        spacing={4}
+        >
             {castArr?.slice(0, 10).map((cast) => {
                 return (
-                    <Stack key={cast.id} direction='column' spacing={2} sx={{cursor: 'pointer'}}> 
+                    <Stack 
+                    key={cast.id} 
+                    component={Link}
+                    to={`/cast/${cast.id}`}
+                    direction='column' 
+                    spacing={2} 
+                    sx={{cursor: 'pointer', textDecoration: 'none'}}
+                    > 
                         <Box
                         sx={{
                             height: '250px',

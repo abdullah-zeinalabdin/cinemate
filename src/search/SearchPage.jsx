@@ -17,6 +17,8 @@ export default function SearchPage() {
                     overview={movie.overview}
                     posterSrc={movie.poster_path || movie.profile_path}
                     key={movie.id}
+                    id={movie.id}
+                    mediaType={movie.media_type}
                 />
             })}
         </Stack>

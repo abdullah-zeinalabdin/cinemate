@@ -29,10 +29,10 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
         }
     };
     const { id, mediaType } = useParams();
-    const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path);
+    const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path)
     /* Local Storage */
     const storedRatings = JSON.parse(localStorage.getItem("ratings")) || [];
-    const existingRating = storedRatings.findIndex((item) => item.id === id);
+    const existingRating = storedRatings.find((item) => item.id === id);
     function handleRatingClick(rating) {
         const ratingObj = {
             id: id,
@@ -40,21 +40,22 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
             mediaType: mediaType,
             rating: rating,
         }
-        if (existingRating !== -1) {
-        storedRatings[existingRating].rating = rating;
+        if (existingRating) {
+            existingRating.rating = rating;
         }else {
             storedRatings.push(ratingObj);
         }
         localStorage.setItem("ratings", JSON.stringify(storedRatings));
     }
     /* === Local Storage === */
+    const displayLabel = variant === 'interactive' && existingRating ? `${existingRating.rating}/10` : ratingLabel;
     return (
         <>
             <Stack color='text.primary' spacing={1} alignItems='center' onClick={handleOpen}>
                 <Typography color="text.secondary" textAlign='center'>{label}</Typography>
                 <Stack direction='row' alignItems='center' spacing={1} p={1} sx={styles[variant]}>
                     <Icon fontSize='large' sx={styles[iconVariant]}/>
-                    <Typography variant="h5" color="text.primary">{ratingLabel}</Typography>
+                    <Typography variant="h5" color="text.primary">{displayLabel}</Typography>
                 </Stack>
             </Stack>
             <RatingModal open={open} handleClose={handleClose} setRating={setRating} handleRatingClick={handleRatingClick}/>

@@ -8,6 +8,7 @@ import SearchPage from './search/SearchPage.jsx';
 import CinemaDetailsPage from './detailsPages/cinemaDetails/CinemaDetailsPage.jsx';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import ActorPage from './detailsPages/actorDetails/ActorPage.jsx';
+import RatingView from './sidePages/RatingView.jsx';
 
 function Layout() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path='/search' element={<SearchPage />} />
           <Route path='/cinema/:mediaType/:id' element={<CinemaDetailsPage />} />
           <Route path='/cast/:id' element={<ActorPage />} />
+          <Route path='/rating' element={<RatingView />} /> 
         </Route>
       </Routes>
       {/* === Routes === */}

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-/* Movies Thunk */
-export const fetchTopRatedMoviesApi = createAsyncThunk("topRatedMoviesThunkFunction", async (url) => {
+/* Generic Thunk */
+export const fetchCinemaDataArr = createAsyncThunk("cinemaDataArrThunkFunction", async ({url, key, mediaType}) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -11,9 +11,9 @@ export const fetchTopRatedMoviesApi = createAsyncThunk("topRatedMoviesThunkFunct
         throw new Error('TMDB fetch failed');
     }
     const data = await response.json();
-    return data.results;
+    return{ data: data.results, key, mediaType}
 });
-export const fetchUpcomingMoviesApi = createAsyncThunk("upcomingMoviesThunkFunction", async (url) => {
+export const fetchCinemaDataObj = createAsyncThunk("cinemaDataObjThunkFunction", async ({url, key}) => {
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -24,159 +24,9 @@ export const fetchUpcomingMoviesApi = createAsyncThunk("upcomingMoviesThunkFunct
         throw new Error('TMDB fetch failed');
     }
     const data = await response.json();
-    return data.results;
+    return{ data: data, key }
 });
-export const fetchPopularMoviesApi = createAsyncThunk("popularMoviesThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-export const fetchNowPlayingMoviesApi = createAsyncThunk("nowPlayingMoviesThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-/* === Movies Thunk === */
-
-/* TV Thunk */
-export const fetchPopularTVApi = createAsyncThunk("popularTVThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-export const fetchTopRatedTVApi = createAsyncThunk("topRatedTVThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-export const fetchOnTheAirTVApi = createAsyncThunk("onTheAirTVThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-export const fetchAiringTodayTVApi = createAsyncThunk("airingTodayTVThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-/* === TV Thunk === */
-/* Search Thunk */
-export const fetchSearchResults = createAsyncThunk("resultsThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data.results;
-});
-/* === Search Thunk === */
-/* Find Thunk */
-export const fetchCinemaDetails = createAsyncThunk("CinemaDetailsThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data;
-});
-export const fetchCinemaCast = createAsyncThunk("CinemaCastThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data;
-});
-export const fetchActorDetails = createAsyncThunk("ActorDetailsThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data;
-});
-export const fetchActorCredits = createAsyncThunk("ActorCreditsThunkFunction", async (url) => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
-        }
-    });
-    if (!response.ok) {
-        throw new Error('TMDB fetch failed');
-    }
-    const data = await response.json();
-    return data;
-});
-/* === Find Thunk === */
+/* === Generic Thunk === */
 const cinemateSlice = createSlice({
     name: 'cinemate',
     initialState: {
@@ -204,44 +54,13 @@ const cinemateSlice = createSlice({
     },
     extraReducers(builder) {
         builder
-        .addCase(fetchTopRatedMoviesApi.fulfilled, (state, action) => {
-            state.movies['topRated'] = action.payload;
+        .addCase(fetchCinemaDataArr.fulfilled, (state, action) => {
+            const { data, key, mediaType } = action.payload;
+            state[mediaType][key] = data;
         })
-        .addCase(fetchUpcomingMoviesApi.fulfilled, (state, action) => {
-            state.movies['upcoming'] = action.payload;
-        })
-        .addCase(fetchPopularMoviesApi.fulfilled, (state, action) => {
-            state.movies['popular'] = action.payload;
-        })
-        .addCase(fetchNowPlayingMoviesApi.fulfilled, (state, action) => {
-            state.movies['nowPlaying'] = action.payload;
-        })
-        .addCase(fetchPopularTVApi.fulfilled, (state, action) => {
-            state.TV['popular'] = action.payload;
-        })
-        .addCase(fetchTopRatedTVApi.fulfilled, (state, action) => {
-            state.TV['topRated'] = action.payload;
-        })
-        .addCase(fetchOnTheAirTVApi.fulfilled, (state, action) => {
-            state.TV['onTheAir'] = action.payload;
-        })
-        .addCase(fetchAiringTodayTVApi.fulfilled, (state, action) => {
-            state.TV['airingToday'] = action.payload;
-        })
-        .addCase(fetchSearchResults.fulfilled, (state, action) => {
-            state.search['list'] = action.payload;
-        })
-        .addCase(fetchCinemaDetails.fulfilled, (state, action) => {
-            state.cinemaDetails = action.payload;
-        })
-        .addCase(fetchCinemaCast.fulfilled, (state, action) => {
-            state.castDetails = action.payload;
-        })
-        .addCase(fetchActorDetails.fulfilled, (state, action) => {
-            state.actorDetails = action.payload;
-        })
-        .addCase(fetchActorCredits.fulfilled, (state, action) => {
-            state.actorCredits = action.payload;
+        .addCase(fetchCinemaDataObj.fulfilled, (state, action) => {
+            const { data, key } = action.payload;
+            state[key] = data;
         })
     }
 });

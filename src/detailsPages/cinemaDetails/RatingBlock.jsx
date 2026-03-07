@@ -51,7 +51,7 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
     const displayLabel = variant === 'interactive' && existingRating ? `${existingRating.rating}/10` : ratingLabel;
     return (
         <>
-            <Stack color='text.primary' spacing={1} alignItems='center' onClick={handleOpen}>
+            <Stack color='text.primary' spacing={1} alignItems='center' onClick={variant === 'interactive' ? handleOpen : null}>
                 <Typography color="text.secondary" textAlign='center'>{label}</Typography>
                 <Stack direction='row' alignItems='center' spacing={1} p={1} sx={styles[variant]}>
                     <Icon fontSize='large' sx={styles[iconVariant]}/>

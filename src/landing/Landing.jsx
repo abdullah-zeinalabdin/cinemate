@@ -5,7 +5,7 @@ import SearchBar from "../search/SearchBar";
 import MovieRow from "./MovieRow";
 /* Redux Imports */
 import { useDispatch, useSelector} from 'react-redux';
-import { fetchTopRatedMoviesApi, fetchPopularMoviesApi, fetchUpcomingMoviesApi, fetchNowPlayingMoviesApi, fetchPopularTVApi, fetchAiringTodayTVApi, fetchOnTheAirTVApi, fetchTopRatedTVApi } from "../redux/cinemateSlice";
+import { fetchCinemaDataArr } from "../redux/cinemateSlice";
 import { useEffect } from "react";
 /* === Redux Imports === */
 
@@ -27,16 +27,16 @@ export default function Landing() {
     const dispatch = useDispatch();
     useEffect(() => {
         /* Movies */
-        dispatch(fetchTopRatedMoviesApi(`https://api.themoviedb.org/3/movie/top_rated`));
-        dispatch(fetchUpcomingMoviesApi(`https://api.themoviedb.org/3/movie/upcoming`));
-        dispatch(fetchNowPlayingMoviesApi(`https://api.themoviedb.org/3/movie/now_playing`));
-        dispatch(fetchPopularMoviesApi(`https://api.themoviedb.org/3/movie/popular`));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/top_rated`, key: 'topRated', mediaType: 'movies'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/upcoming`, key: 'upcoming', mediaType: 'movies'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/now_playing`, key: 'nowPlaying', mediaType: 'movies'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/popular`, key: 'popular', mediaType: 'movies'}));
         /* === Movies === */
         /* TV */
-        dispatch(fetchPopularTVApi(`https://api.themoviedb.org/3/tv/popular`));
-        dispatch(fetchAiringTodayTVApi(`https://api.themoviedb.org/3/tv/airing_today`));
-        dispatch(fetchOnTheAirTVApi(`https://api.themoviedb.org/3/tv/on_the_air`));
-        dispatch(fetchTopRatedTVApi(`https://api.themoviedb.org/3/tv/top_rated`));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/popular`, key: 'popular', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/airing_today`, key: 'airingToday', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/on_the_air`, key: 'onTheAir', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/top_rated`, key: 'onTheAir', mediaType: 'TV'}));
         /* === TV === */
     }, [dispatch]);
     return (

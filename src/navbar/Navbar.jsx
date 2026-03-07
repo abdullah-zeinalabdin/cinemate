@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import StarIcon from '@mui/icons-material/Star';
 import PersonIcon from '@mui/icons-material/Person';
 import Box from '@mui/material/Box';
@@ -17,8 +16,7 @@ export default function Navbar() {
         {id: 2, label: 'Movies', icon: <MovieCreationIcon />, to: '/movies'},
         {id: 3, label: 'TV Shows', icon: <OndemandVideoIcon />, to: '/tv'},
         {id: 4, label: 'My Ratings', icon: <StarIcon />, to: '/rating'},
-        {id: 5, label: 'Watchlist', icon: <WatchLaterIcon />, to: '/watchlist'},
-        {id: 6, label: 'Profile', icon: <PersonIcon />, to: '/profile'},
+        {id: 5, label: 'Profile', icon: <PersonIcon />, to: '/profile'},
     ]
     return (
         <Stack sx={{bgcolor: 'background.paper', minHeight: '100%'}} p={{xs: 0, sm: 3}}>

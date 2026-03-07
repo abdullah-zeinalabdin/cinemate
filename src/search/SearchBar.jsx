@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 /* === MUI Imports === */
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { fetchSearchResults } from '../redux/cinemateSlice';
+import { fetchCinemaDataArr } from '../redux/cinemateSlice';
 import { Link } from 'react-router-dom';
 export default function SearchBar() {
     const [searchInput, setSearchInput] = useState('');
@@ -54,7 +54,7 @@ export default function SearchBar() {
                 color='primary' 
                 sx={{borderRadius: '6px', width: {xs: '50px', sm: '100px'}}}
                 onClick={() => {
-                    dispatch(fetchSearchResults(`https://api.themoviedb.org/3/search/multi?query=${searchInput}&page=1`));
+                    dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/search/multi?query=${searchInput}&page=1`, key: 'list', mediaType: 'search'}));
                 }}
                 component={Link}
                 to='/search'

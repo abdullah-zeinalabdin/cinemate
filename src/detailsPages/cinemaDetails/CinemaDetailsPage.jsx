@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchCinemaCast, fetchCinemaDetails } from "../../redux/cinemateSlice";
+import { fetchCinemaDataObj } from "../../redux/cinemateSlice";
 import { useParams } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import CinemaOverview from "./CinemaOveview";
@@ -10,8 +10,8 @@ export default function CinemaDetailsPage() {
     const {mediaType, id} = useParams();
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchCinemaDetails(`https://api.themoviedb.org/3/${mediaType}/${id}`));
-        dispatch(fetchCinemaCast(`https://api.themoviedb.org/3/${mediaType}/${id}/credits`));
+        dispatch(fetchCinemaDataObj({url: `https://api.themoviedb.org/3/${mediaType}/${id}`, key: 'cinemaDetails'}));
+        dispatch(fetchCinemaDataObj({url: `https://api.themoviedb.org/3/${mediaType}/${id}/credits`, key: 'castDetails'}));
     }, [dispatch, mediaType, id]);
     const details = useSelector((state) => {
         return state.cinemate.cinemaDetails;

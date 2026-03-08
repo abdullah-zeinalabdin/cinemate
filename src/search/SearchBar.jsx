@@ -9,30 +9,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { fetchCinemaDataArr } from '../redux/cinemateSlice';
 import { Link } from 'react-router-dom';
+import { searchBarStyles } from '../Styles';
 export default function SearchBar() {
     const [searchInput, setSearchInput] = useState('');
     const dispatch = useDispatch();
     return (
         <Stack direction='row' spacing={2} mb={5}>
             <TextField
-                        sx={
-                            {
-                                bgcolor: 'background.paper',
-                                '& .MuiOutlinedInput-root': {
-                                    '& fieldset': {
-                                        borderColor: 'transparent',
-                                    },
-                                    '&:hover fieldset': {
-                                        borderColor: 'transparent',
-                                    },
-                                    '&.Mui-focused fieldset': {
-                                        borderColor: 'transparent',
-                                        boxShadow: 'none',
-                                    }
-                                },
-                                borderRadius: '6px',
-                            }
-                        }
+                        sx={searchBarStyles}
                         value={searchInput}
                         onChange={(e) => {setSearchInput(e.target.value)}}
                         fullWidth

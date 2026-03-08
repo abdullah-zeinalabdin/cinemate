@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import CinemaOverview from "./CinemaOveview";
 import Box from "@mui/material/Box";
 import CastContainer from "../castDetails/CastContainer";
+import { heroBackdropStyles } from "../../Styles";
 export default function CinemaDetailsPage() {
     const {mediaType, id} = useParams();
     const dispatch = useDispatch();
@@ -18,22 +19,8 @@ export default function CinemaDetailsPage() {
     });
     return (
         <Stack>
-            <Box
-            sx={{
-                position: 'relative',
-                minHeight: '70vh',
-                backgroundImage: `url(https://image.tmdb.org/t/p/original/${details.backdrop_path})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-            >
-                <Box 
-                sx={{
-                    position: 'absolute',
-                    inset: 0,
-                    bgcolor: 'rgba(0,0,0,0.8)'
-                }}
-                /> 
+            <Box sx={heroBackdropStyles(details.backdrop_path)}>
+                <Box sx={{ position: 'absolute', inset: 0, bgcolor: 'rgba(0,0,0,0.8)' }} /> 
                 <CinemaOverview />
             </Box>
             <Stack>

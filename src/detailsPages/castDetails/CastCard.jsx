@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
+import { cinemaImgStyles } from "../../Styles";
 
 export default function CastCard() {
     const castArr = useSelector((state) => state.cinemate?.castDetails.cast)
@@ -32,12 +33,7 @@ export default function CastCard() {
                             component='img'
                             src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
                             alt='poster'
-                            sx={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                borderRadius: '6px',
-                            }}
+                            sx={cinemaImgStyles}
                             />
                         </Box>
                         <Stack color='text.primary' textAlign='center'>

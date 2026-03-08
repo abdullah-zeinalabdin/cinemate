@@ -3,6 +3,7 @@ import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { searchResultStyles } from "../Styles";
 
 export default function MovieSection({title, overview, posterSrc, id, mediaType}) {
     return (
@@ -12,7 +13,7 @@ export default function MovieSection({title, overview, posterSrc, id, mediaType}
         to={mediaType === 'person' ? `/cast/${id}` : `/cinema/${mediaType}/${id}`}
         sx={{textDecoration: 'none'}}
         >
-            <Stack direction={{xs: 'column', sm:'row'}} sx={{'&:hover': { bgcolor: 'text.hover' }, transition: '0.3s', cursor: 'pointer', alignItems: 'center', }}>
+            <Stack direction={{xs: 'column', sm:'row'}} sx={searchResultStyles}>
                 <Box sx={{height: '220px', aspectRatio: 2 / 3,}}>
                     <Box component='img'
                     sx={{height:'100%', objectFit: 'cover', borderRadius: '6px'}} 

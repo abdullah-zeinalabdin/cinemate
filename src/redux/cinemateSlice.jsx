@@ -49,6 +49,25 @@ const cinemateSlice = createSlice({
         castDetails: {},
         actorDetails: {},
         actorCredits: {},
+
+        isLoading: {
+            topRatedTV: false,
+            popularTV: false,
+            onTheAirTV: false,
+            airingTodayTV: false,
+
+            topRatedmovies: false,
+            popularmovies: false,
+            upcomingmovies: false,
+            nowPlayingmovies: false,
+
+            listsearch: false,
+
+            cinemaDetails: false,
+            castDetails: false,
+            actorDetails: false,
+            actorCredits: false,
+        },
     },
     reducers: {
     },
@@ -57,10 +76,24 @@ const cinemateSlice = createSlice({
         .addCase(fetchCinemaDataArr.fulfilled, (state, action) => {
             const { data, key, mediaType } = action.payload;
             state[mediaType][key] = data;
+            const loadingKey = `${key}${mediaType}`;
+            state.isLoading[loadingKey] = false;
         })
         .addCase(fetchCinemaDataObj.fulfilled, (state, action) => {
             const { data, key } = action.payload;
             state[key] = data;
+            const loadingKey = `${key}`;
+            state.isLoading[loadingKey] = false;
+        })
+        .addCase(fetchCinemaDataArr.pending, (state, action) => {
+            const { key, mediaType } = action.meta.arg;
+            const loadingKey = `${key}${mediaType}`;
+            state.isLoading[loadingKey] = true;
+        })
+        .addCase(fetchCinemaDataObj.pending, (state, action) => {
+            const { key } = action.meta.arg;
+            const loadingKey = `${key}`;
+            state.isLoading[loadingKey] = true;
         })
     }
 });

@@ -9,6 +9,7 @@ import CinemaDetailsPage from './detailsPages/cinemaDetails/CinemaDetailsPage.js
 import { Routes, Route, Outlet } from 'react-router-dom';
 import ActorPage from './detailsPages/actorDetails/ActorPage.jsx';
 import RatingView from './sidePages/RatingView.jsx';
+import ComingSoon from './sidePages/ComingSoon.jsx';
 
 function Layout() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path='/cinema/:mediaType/:id' element={<CinemaDetailsPage />} />
           <Route path='/cast/:id' element={<ActorPage />} />
           <Route path='/rating' element={<RatingView />} /> 
+          <Route path='/profile' element={<ComingSoon />} />
         </Route>
       </Routes>
       {/* === Routes === */}

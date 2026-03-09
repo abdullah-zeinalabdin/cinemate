@@ -49,20 +49,31 @@ const cinemateSlice = createSlice({
         castDetails: {},
         actorDetails: {},
         actorCredits: {},
-
         isLoading: {
             topRatedTV: false,
             popularTV: false,
             onTheAirTV: false,
             airingTodayTV: false,
-
             topRatedmovies: false,
             popularmovies: false,
             upcomingmovies: false,
             nowPlayingmovies: false,
-
             listsearch: false,
-
+            cinemaDetails: false,
+            castDetails: false,
+            actorDetails: false,
+            actorCredits: false,
+        },
+        isRejected: {
+            topRatedTV: false,
+            popularTV: false,
+            onTheAirTV: false,
+            airingTodayTV: false,
+            topRatedmovies: false,
+            popularmovies: false,
+            upcomingmovies: false,
+            nowPlayingmovies: false,
+            listsearch: false,
             cinemaDetails: false,
             castDetails: false,
             actorDetails: false,
@@ -94,6 +105,16 @@ const cinemateSlice = createSlice({
             const { key } = action.meta.arg;
             const loadingKey = `${key}`;
             state.isLoading[loadingKey] = true;
+        })
+        .addCase(fetchCinemaDataArr.rejected, (state, action) => {
+            const { key, mediaType } = action.meta.arg;
+            const rejectedKey = `${key}${mediaType}`;
+            state.isRejected[rejectedKey] = true;
+        })
+        .addCase(fetchCinemaDataObj.rejected, (state, action) => {
+            const { key } = action.meta.arg;
+            const rejectedKey = `${key}`;
+            state.isRejected[rejectedKey] = true;
         })
     }
 });

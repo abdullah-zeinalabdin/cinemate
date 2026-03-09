@@ -18,11 +18,15 @@ export default function MoviesDisovery() {
     const isLoadingTopRatedmovies = useSelector((state) => state.cinemate.isLoading.topRatedmovies);
     const isLoadingUpcomingmovies = useSelector((state) => state.cinemate.isLoading.upcomingmovies);
     const isLoadingNowPlayingmovies = useSelector((state) => state.cinemate.isLoading.nowPlayingmovies);
+    const isRejectedPopularmovies = useSelector((state) => state.cinemate.isRejected.popularmovies);
+    const isRejectedTopRatedmovies = useSelector((state) => state.cinemate.isRejected.topRatedmovies);
+    const isRejectedUpcomingmovies = useSelector((state) => state.cinemate.isRejected.upcomingmovies);
+    const isRejectedNowPlayingmovies = useSelector((state) => state.cinemate.isRejected.nowPlayingmovies);
     const movieRowArr = [
-        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'movie', isLoading: isLoadingPopularmovies,},
-        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie', isLoading: isLoadingTopRatedmovies,},
-        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie', isLoading: isLoadingUpcomingmovies,},
-        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema, mediaType: 'movie', isLoading: isLoadingNowPlayingmovies,}
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'movie', isLoading: isLoadingPopularmovies, isRejected: isRejectedPopularmovies},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie', isLoading: isLoadingTopRatedmovies, isRejected: isRejectedTopRatedmovies},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie', isLoading: isLoadingUpcomingmovies, isRejected: isRejectedUpcomingmovies},
+        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema, mediaType: 'movie', isLoading: isLoadingNowPlayingmovies, isRejected: isRejectedNowPlayingmovies}
     ];
     return (
         <Stack p={5}>

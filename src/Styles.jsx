@@ -79,6 +79,15 @@ const ratingModalStyles = {
     bgcolor: 'background.default',
     borderRadius: '6px',
     p: 4,
+};
+
+const errorBoxStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    gap: 1,
+    py: 6,
 }
 
 const navbarItemStyles = (isActive) => ({
@@ -110,6 +119,6 @@ const heroBackdropStyles = (poster) => ({
 export {
     cinemaImgStyles, searchResultStyles, searchBarStyles, 
     actorBioButtonStyles, cinemaImgContainerStyles, ratingBlocksStyles,
-    ratingModalStyles, 
+    ratingModalStyles, errorBoxStyles,
     navbarItemStyles, actorBioStyles, heroBackdropStyles,
 };

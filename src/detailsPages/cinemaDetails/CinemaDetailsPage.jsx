@@ -7,9 +7,12 @@ import CinemaOverview from "./CinemaOveview";
 import Box from "@mui/material/Box";
 import CastContainer from "../castDetails/CastContainer";
 import { heroBackdropStyles } from "../../Styles";
+import GlobalError from "../../GlobalError";
 export default function CinemaDetailsPage() {
     const {mediaType, id} = useParams();
     const dispatch = useDispatch();
+    const isRejectedDetails = useSelector((state) => state.cinemate.isRejected.cinemaDetails);
+    const isRejectedCast = useSelector((state) => state.cinemate.isRejected.castDetails)
     useEffect(() => {
         dispatch(fetchCinemaDataObj({url: `https://api.themoviedb.org/3/${mediaType}/${id}`, key: 'cinemaDetails'}));
         dispatch(fetchCinemaDataObj({url: `https://api.themoviedb.org/3/${mediaType}/${id}/credits`, key: 'castDetails'}));
@@ -19,12 +22,24 @@ export default function CinemaDetailsPage() {
     });
     return (
         <Stack>
-            <Box sx={heroBackdropStyles(details.backdrop_path)}>
-                <Box sx={{ position: 'absolute', inset: 0, bgcolor: 'rgba(0,0,0,0.8)' }} /> 
-                <CinemaOverview />
-            </Box>
+            {
+                isRejectedDetails
+                ?
+                <GlobalError />
+                :
+                <Box sx={heroBackdropStyles(details.backdrop_path)}>
+                    <Box sx={{ position: 'absolute', inset: 0, bgcolor: 'rgba(0,0,0,0.8)' }} /> 
+                    <CinemaOverview />
+                </Box>
+            }
             <Stack>
-                <CastContainer />
+                {
+                    isRejectedCast
+                    ?
+                    <GlobalError />
+                    :
+                    <CastContainer />
+                }
             </Stack>
         </Stack>
     )

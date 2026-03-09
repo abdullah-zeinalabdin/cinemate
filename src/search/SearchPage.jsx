@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import SearchBar from "./SearchBar";
 export default function SearchPage() {
     const movies = useSelector((state) => state.cinemate.search['list']);
+    const isLoadingSearch = useSelector((state) => state.cinemate.isLoading.listsearch);
     return (
         <Stack p={5} spacing={4}>
             <SearchBar />
@@ -19,6 +20,7 @@ export default function SearchPage() {
                     key={movie.id}
                     id={movie.id}
                     mediaType={movie.media_type}
+                    isLoading={isLoadingSearch}
                 />
             })}
         </Stack>

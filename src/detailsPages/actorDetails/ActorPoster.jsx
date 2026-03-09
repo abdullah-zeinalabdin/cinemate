@@ -1,12 +1,18 @@
 import Box from "@mui/material/Box"
 import { useSelector } from "react-redux"
 import { cinemaImgContainerStyles, cinemaImgStyles } from "../../Styles";
+import Skeleton from "@mui/material/Skeleton";
 export default function ActorPoster() {
     const poster = useSelector((state) => state.cinemate?.actorDetails?.profile_path);
+    const isLoadingPoster = useSelector((state) => state.cinemate.isLoading.actorDetails);
     return (
-        <Box
-        sx={cinemaImgContainerStyles}
-        >
+        isLoadingPoster
+        ?
+        <Box sx={cinemaImgContainerStyles}>
+            <Skeleton variant="rounded" sx={cinemaImgStyles}/>
+        </Box>
+        :
+        <Box sx={cinemaImgContainerStyles}>
             <Box
             component='img'
             alt='poster'

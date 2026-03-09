@@ -19,10 +19,13 @@ export default function Landing() {
     const upcomingCinema = useSelector((state) => {
         return state.cinemate.movies['upcoming'];
     });
+    const isLoadingPopularTV = useSelector((state) => state.cinemate.isLoading.popularTV);
+    const isLoadingTopRatedmovies = useSelector((state) => state.cinemate.isLoading.topRatedmovies);
+    const isLoadingUpcomingmovies = useSelector((state) => state.cinemate.isLoading.upcomingmovies);
     const movieRowArr = [
-        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'tv'},
-        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie'},
-        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie'},
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'tv', isLoading: isLoadingPopularTV},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie', isLoading: isLoadingTopRatedmovies,},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie', isLoading: isLoadingUpcomingmovies,},
     ];
     const dispatch = useDispatch();
     useEffect(() => {

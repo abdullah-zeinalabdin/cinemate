@@ -2,12 +2,15 @@ import Stack from "@mui/material/Stack";
 import MovieCard from "./MovieCard";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-
-export default function MovieCardContainer({movies = [], mediaType}) {
+import Skeleton from '@mui/material/Skeleton';
+export default function MovieCardContainer({movies = [], mediaType, isLoading}) {
     return (
         <Stack direction='row' spacing={2} sx={{overflowX: 'scroll', scrollbarWidth: 'none',}}>
             {movies?.map((top) => {
                 return (
+                    ( isLoading ? 
+                    <Skeleton key={`${top.id}-${mediaType}`} variant="rounded" sx={{aspectRatio: 2/3,  height: '280px'}} /> 
+                    :
                     <Box 
                         key={`${top.id}-${mediaType}`}   
                         sx={{
@@ -18,7 +21,7 @@ export default function MovieCardContainer({movies = [], mediaType}) {
                         to={`/cinema/${mediaType}/${top.id}`}
                     >
                         <MovieCard src={`https://image.tmdb.org/t/p/w500/${top.poster_path}`} />
-                    </Box>
+                    </Box>)
                 )
             })}
         </Stack>

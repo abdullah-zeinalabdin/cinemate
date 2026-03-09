@@ -4,9 +4,10 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
 import { cinemaImgStyles } from "../../Styles";
-
+import Skeleton from "@mui/material/Skeleton";
 export default function CastCard() {
-    const castArr = useSelector((state) => state.cinemate?.castDetails.cast)
+    const castArr = useSelector((state) => state.cinemate?.castDetails.cast);
+    const isLoadingCast = useSelector((state) => state.cinemate.isLoading.castDetails);
     return (
         <Stack 
         direction='row' 
@@ -23,23 +24,44 @@ export default function CastCard() {
                     spacing={2} 
                     sx={{cursor: 'pointer', textDecoration: 'none'}}
                     > 
-                        <Box
-                        sx={{
-                            height: '250px',
-                            aspectRatio: 2 / 3
-                        }}
-                        >
+                    {(
+                        isLoadingCast
+                        ?
+                        <>
                             <Box
-                            component='img'
-                            src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                            alt='poster'
-                            sx={cinemaImgStyles}
-                            />
-                        </Box>
-                        <Stack color='text.primary' textAlign='center'>
-                            <Typography fontSize='20px' fontWeight='600'>{cast.name}</Typography>
-                            <Typography color="text.secondary">{cast.character}</Typography>
-                        </Stack>
+                            sx={{
+                                height: '250px',
+                                aspectRatio: 2 / 3
+                            }}
+                            >
+                                <Skeleton variant="rounded" sx={cinemaImgStyles}/>
+                            </Box>
+                            <Stack>
+                                <Skeleton />
+                                <Skeleton width='80%'/>
+                            </Stack>
+                        </>
+                        :
+                        <>
+                            <Box
+                            sx={{
+                                height: '250px',
+                                aspectRatio: 2 / 3
+                            }}
+                            >
+                                <Box
+                                component='img'
+                                src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                                alt='poster'
+                                sx={cinemaImgStyles}
+                                />
+                            </Box>
+                            <Stack color='text.primary' textAlign='center'>
+                                <Typography fontSize='20px' fontWeight='600'>{cast.name}</Typography>
+                                <Typography color="text.secondary">{cast.character}</Typography>
+                            </Stack>
+                        </>
+                    )}
                     </Stack>
             )
             })}

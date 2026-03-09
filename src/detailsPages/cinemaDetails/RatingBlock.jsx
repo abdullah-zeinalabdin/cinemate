@@ -5,13 +5,15 @@ import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux";
 import RatingModal from "./RatingModal";
 import { ratingBlocksStyles } from "../../Styles";
+import Skeleton from "@mui/material/Skeleton";
 export default function RatingBlock({label, variant = 'default', icon: Icon, ratingLabel, iconVariant = 'iconDefault'}) {
     const [open, setOpen] = useState(false);
     const [rating, setRating] = useState(null);
     const handleOpen = () => {setOpen(true)};
     const handleClose = () => {setOpen(false)};
     const { id, mediaType } = useParams();
-    const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path)
+    const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path);
+    const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);
     /* Local Storage */
     const storedRatings = JSON.parse(localStorage.getItem("ratings")) || [];
     const existingRating = storedRatings.find((item) => item.id === id);
@@ -37,7 +39,13 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
                 <Typography color="text.secondary" textAlign='center'>{label}</Typography>
                 <Stack direction='row' alignItems='center' spacing={1} p={1} sx={ratingBlocksStyles[variant]}>
                     <Icon fontSize='large' sx={ratingBlocksStyles[iconVariant]}/>
-                    <Typography variant="h5" color="text.primary">{displayLabel}</Typography>
+                    {(
+                        isLoadingDetails 
+                        ?
+                        <Skeleton variant="text" width='100%' sx={{fontSize: '2rem'}} />
+                        :
+                        <Typography variant="h5" color="text.primary">{displayLabel}</Typography>
+                    )}
                 </Stack>
             </Stack>
             <RatingModal open={open} handleClose={handleClose} setRating={setRating} handleRatingClick={handleRatingClick}/>

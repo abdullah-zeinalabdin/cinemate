@@ -14,11 +14,15 @@ export default function MoviesDisovery() {
     const nowPlayingCinema = useSelector((state) => {
         return state.cinemate.movies['nowPlaying'];
     });
+    const isLoadingPopularmovies = useSelector((state) => state.cinemate.isLoading.popularmovies);
+    const isLoadingTopRatedmovies = useSelector((state) => state.cinemate.isLoading.topRatedmovies);
+    const isLoadingUpcomingmovies = useSelector((state) => state.cinemate.isLoading.upcomingmovies);
+    const isLoadingNowPlayingmovies = useSelector((state) => state.cinemate.isLoading.nowPlayingmovies);
     const movieRowArr = [
-        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'movie'},
-        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie'},
-        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie'},
-        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema, mediaType: 'movie'}
+        {id: 1, sectionLabel: 'Popular Now', movies: popularCinema, mediaType: 'movie', isLoading: isLoadingPopularmovies,},
+        {id: 2, sectionLabel: 'Top Rated', movies: topRatedCinema, mediaType: 'movie', isLoading: isLoadingTopRatedmovies,},
+        {id: 3, sectionLabel: 'Upcoming', movies: upcomingCinema, mediaType: 'movie', isLoading: isLoadingUpcomingmovies,},
+        {id: 4, sectionLabel: 'Now Playing', movies: nowPlayingCinema, mediaType: 'movie', isLoading: isLoadingNowPlayingmovies,}
     ];
     return (
         <Stack p={5}>

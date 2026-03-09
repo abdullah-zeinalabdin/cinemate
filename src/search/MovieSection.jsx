@@ -4,9 +4,13 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { searchResultStyles } from "../Styles";
-
-export default function MovieSection({title, overview, posterSrc, id, mediaType}) {
+import Skeleton from "@mui/material/Skeleton";
+export default function MovieSection({title, overview, posterSrc, id, mediaType, isLoading}) {
     return (
+        (
+        isLoading ? 
+        <Skeleton variant="rectangle" sx={{height: '220px', aspectRatio: 2 / 3,}}/>
+        :
         <Stack 
         spacing={5} 
         component={Link}
@@ -30,5 +34,6 @@ export default function MovieSection({title, overview, posterSrc, id, mediaType}
             </Stack>
             <Divider sx={{bgcolor: 'primary.main', width: '80%', alignSelf: 'center'}}/>
         </Stack>
+        )
     )
 }

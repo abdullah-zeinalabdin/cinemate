@@ -5,10 +5,17 @@ import OverviewHeader from "./OverviewHeader";
 import Ratings from "./Ratings";
 import OverviewSection from "./OverviewSection";
 import { cinemaImgContainerStyles, cinemaImgStyles } from "../../Styles";
+import Skeleton from "@mui/material/Skeleton";
 export default function CinemaOverview() {
     const poster = useSelector((state) => state.cinemate.cinemaDetails.poster_path);
+    const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);
     return (
         <Stack direction={{xs: 'column-reverse', md: 'row'}} spacing={4} p={5} sx={{position: 'relative', zIndex: 1}} alignItems={{xs: 'center'}}>
+            {(isLoadingDetails ?
+            <Box sx={cinemaImgContainerStyles}>
+                <Skeleton variant="rounded" sx={cinemaImgStyles}/>
+            </Box>
+            :
             <Box
             sx={cinemaImgContainerStyles}
             >
@@ -18,6 +25,7 @@ export default function CinemaOverview() {
                 sx={cinemaImgStyles}
                 />
             </Box>
+            )}
             <Stack>
                 <OverviewHeader />
                 <Ratings />

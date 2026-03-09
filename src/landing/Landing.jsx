@@ -35,14 +35,9 @@ export default function Landing() {
         /* Movies */
         dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/top_rated`, key: 'topRated', mediaType: 'movies'}));
         dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/upcoming`, key: 'upcoming', mediaType: 'movies'}));
-        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/now_playing`, key: 'nowPlaying', mediaType: 'movies'}));
-        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/popular`, key: 'popular', mediaType: 'movies'}));
         /* === Movies === */
         /* TV */
         dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/popular`, key: 'popular', mediaType: 'TV'}));
-        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/airing_today`, key: 'airingToday', mediaType: 'TV'}));
-        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/on_the_air`, key: 'onTheAir', mediaType: 'TV'}));
-        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/top_rated`, key: 'topRated', mediaType: 'TV'}));
         /* === TV === */
     }, [dispatch]);
     return (

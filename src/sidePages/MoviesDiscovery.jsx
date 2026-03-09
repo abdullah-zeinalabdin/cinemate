@@ -1,15 +1,28 @@
 import Stack from "@mui/material/Stack";
 import MovieRow from "../landing/MovieRow";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCinemaDataArr } from "../redux/cinemateSlice";
+import { useEffect } from "react";
 export default function MoviesDisovery() {
-    const popularCinema = useSelector((state) => {
-        return state.cinemate.movies['popular'];
-    });
+    const dispatch = useDispatch();
     const topRatedCinema = useSelector((state) => {
-        return state.cinemate.movies['topRated'];
+        return state.cinemate?.movies['topRated'];
     });
     const upcomingCinema = useSelector((state) => {
-        return state.cinemate.movies['upcoming'];
+        return state.cinemate?.movies['upcoming'];
+    });
+    useEffect(() => {
+        if(!topRatedCinema.length) {
+            dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/top_rated`, key: 'topRated', mediaType: 'movies'}));
+        }
+        if(!upcomingCinema.length) {
+            dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/upcoming`, key: 'upcoming', mediaType: 'movies'}));
+        }
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/now_playing`, key: 'nowPlaying', mediaType: 'movies'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/movie/popular`, key: 'popular', mediaType: 'movies'}));
+    }, [dispatch, topRatedCinema.length, upcomingCinema.length])
+    const popularCinema = useSelector((state) => {
+        return state.cinemate.movies['popular'];
     });
     const nowPlayingCinema = useSelector((state) => {
         return state.cinemate.movies['nowPlaying'];

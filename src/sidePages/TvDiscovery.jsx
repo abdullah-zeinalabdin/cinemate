@@ -1,10 +1,23 @@
 import Stack from "@mui/material/Stack";
 import MovieRow from "../landing/MovieRow";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCinemaDataArr } from "../redux/cinemateSlice";
 export default function MoviesDisovery() {
+    const dispatch = useDispatch();
     const popularCinema = useSelector((state) => {
-        return state.cinemate.TV['popular'];
+        return state.cinemate?.TV['popular'];
     });
+    useEffect(() => {
+        if(!popularCinema.length) {
+            dispatch((fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/popular`, key: 'popular', mediaType: 'TV'})))
+        }
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/popular`, key: 'popular', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/airing_today`, key: 'airingToday', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/on_the_air`, key: 'onTheAir', mediaType: 'TV'}));
+        dispatch(fetchCinemaDataArr({url: `https://api.themoviedb.org/3/tv/top_rated`, key: 'topRated', mediaType: 'TV'}));
+    }, [dispatch, popularCinema.length])
+
     const topRatedCinema = useSelector((state) => {
         return state.cinemate.TV['topRated'];
     });

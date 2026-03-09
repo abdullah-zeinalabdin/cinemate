@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import RatingModal from "./RatingModal";
 import { ratingBlocksStyles } from "../../Styles";
 import Skeleton from "@mui/material/Skeleton";
+import { getAllRatings, saveRating } from "../../utils/ratingStorage";
 export default function RatingBlock({label, variant = 'default', icon: Icon, ratingLabel, iconVariant = 'iconDefault'}) {
     const [open, setOpen] = useState(false);
     const [rating, setRating] = useState(null);
@@ -15,21 +16,9 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
     const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path);
     const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);
     /* Local Storage */
-    const storedRatings = JSON.parse(localStorage.getItem("ratings")) || [];
-    const existingRating = storedRatings.find((item) => item.id === id);
+    const existingRating = getAllRatings.storedRatings.find((item) => item.id === id);
     function handleRatingClick(rating) {
-        const ratingObj = {
-            id: id,
-            poster: poster,
-            mediaType: mediaType,
-            rating: rating,
-        }
-        if (existingRating) {
-            existingRating.rating = rating;
-        }else {
-            storedRatings.push(ratingObj);
-        }
-        localStorage.setItem("ratings", JSON.stringify(storedRatings));
+        saveRating({id, poster, mediaType, rating: rating})
     }
     /* === Local Storage === */
     const displayLabel = variant === 'interactive' && existingRating ? `${existingRating.rating}/10` : ratingLabel;

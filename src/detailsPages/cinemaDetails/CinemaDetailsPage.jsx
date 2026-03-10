@@ -9,7 +9,7 @@ import { Box, Stack } from "@mui/material";
 
 import { heroBackdropStyles } from "../../Styles";
 
-import CinemaOverview from "./CinemaOveview";
+import CinemaOverview from "./CinemaOverview";
 import CastContainer from "../castDetails/CastContainer";
 import GlobalError from "../../GlobalError";
 

@@ -21,7 +21,7 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
     const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path);
     const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);
     /* Local Storage */
-    const existingRating = getAllRatings().storedRatings.find((item) => item.id === id);
+    const existingRating = getAllRatings().find((item) => item.id === id);
     function handleRatingClick(rating) {
         saveRating({id, poster, mediaType, rating: rating})
     }

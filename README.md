@@ -11,35 +11,35 @@ The application focuses on providing a smooth browsing experience through:
 
 ---
 
-## Live Demo
+## 🌐 Live Demo
 🔗 [Cinemate on Vercel](https://cinemate-eta-blond.vercel.app/)
 
 ---
 
 ## ✨ Features
 
-### Movie & TV Discovery
+### 🎥 Movie & TV Discovery
 - Browse Popular, Top Rated, Upcoming, and Now Playing movies
 - Explore TV shows with multiple discovery sections
 
-### Search
+### 🔎 Search
 - Search across movies, TV shows, and actors
 - Clickable search results that navigate to details page
 
-### Detailed Pages
+### 📄 Detailed Pages
 - Movie and TV show overview pages
 - Actor profile pages with filmography
 
-### Ratings
+### ⭐ Ratings
 - Users can rate titles
 - Ratings are persisted using localStorage
 
-### UX Improvments
+### ⚡ UX Improvments
 - Skeleton loaders for smooth loading states
 - Section-specific error handling
 - Responsive layout for desktop and mobile
 
-## Tech Stack
+## ⚒️ Tech Stack
 
 **Frontend**
 - React
@@ -56,7 +56,7 @@ The application focuses on providing a smooth browsing experience through:
 **Language**
 - JavaScript (ES6+)
 
-## Installation
+## 🚀 Installation
 
 - Clone the repo: `git clone https://github.com/abdullah-zeinalabdin/cinemate.git`
 - Navigate into the project folder: `cd cinemate`
@@ -65,29 +65,29 @@ The application focuses on providing a smooth browsing experience through:
 - Start app locally: `npm start`
 - Open [http://localhost:3000](http://localhost:3000) in your browser to see the app
 
-## Screenshots
+## 📸 Screenshots
 
-### Home Page
+### 🏠 Home Page
 ![Home](src/assets/screenshots/home.png)
 
-### Search Results
+### 🔎 Search Results
 ![Search](src/assets/screenshots/search.png)
 
-### Movie Details
+### 🎬 Movie Details
 ![Movie](src/assets/screenshots/moviedetails.png)
 
-### Cast Details
+### 🎭 Cast Details
 ![Cast](src/assets/screenshots/castdetails.png)
 
-### Mobile View
+### 📱 Mobile View
 ![Mobile](src/assets/screenshots/mobile.png)
 
-## Future Improvments
+## 🔮 Future Improvments
 - Genre filtering
 - User authentication
 - Performance optimizations
 
-## License & Attribution
+## 📄 License & Attribution
 
 - This project is licensed under **MIT**.
 - This product uses the **TMDB API** but is **not endorsed or certified by TMDB**

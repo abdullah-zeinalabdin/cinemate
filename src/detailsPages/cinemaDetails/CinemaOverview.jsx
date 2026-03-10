@@ -1,11 +1,13 @@
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
+
+import { Box, Skeleton, Stack } from "@mui/material";
+
+import { cinemaImgContainerStyles, cinemaImgStyles } from "../../Styles";
+
 import OverviewHeader from "./OverviewHeader";
 import Ratings from "./Ratings";
 import OverviewSection from "./OverviewSection";
-import { cinemaImgContainerStyles, cinemaImgStyles } from "../../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
 export default function CinemaOverview() {
     const poster = useSelector((state) => state.cinemate.cinemaDetails.poster_path);
     const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);

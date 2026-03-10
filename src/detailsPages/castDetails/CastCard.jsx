@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
+
+import { Link } from "react-router-dom";
+
+import { Box, Skeleton, Stack, Typography } from "@mui/material";
+
 import { cinemaImgStyles } from "../../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
 export default function CastCard() {
     const castArr = useSelector((state) => state.cinemate?.castDetails.cast);
     const isLoadingCast = useSelector((state) => state.cinemate.isLoading.castDetails);

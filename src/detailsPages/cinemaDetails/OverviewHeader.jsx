@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Skeleton from "@mui/material/Skeleton";
+
+import { Skeleton, Stack, Typography } from "@mui/material";
+
 export default function OverviewHeader() {
     const title = useSelector((state) => state.cinemate.cinemaDetails?.title || state.cinemate.cinemaDetails?.name);
     const date = useSelector((state) => state.cinemate.cinemaDetails?.release_date || state.cinemate.cinemaDetails?.first_air_date );

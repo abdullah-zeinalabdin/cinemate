@@ -1,4 +1,5 @@
-import Stack from "@mui/material/Stack"
+import Stack from "@mui/material/Stack";
+
 import ActorPoster from "./ActorPoster";
 import ActorDetailsSection from "./ActorDetailsSection";
 

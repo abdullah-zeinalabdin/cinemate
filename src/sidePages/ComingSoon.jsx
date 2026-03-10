@@ -1,5 +1,6 @@
-import ConstructionIcon from '@mui/icons-material/Construction';
 import { Box, Typography } from '@mui/material';
+import ConstructionIcon from '@mui/icons-material/Construction';
+
 export default function ComingSoon() {
     return (
         <Box textAlign='center' py={10} sx={{color: 'text.primary'}}>

@@ -1,12 +1,14 @@
+import { Routes, Route, Outlet } from 'react-router-dom';
+
+import Box from '@mui/material/Box';
+
 import './App.css';
 import Landing from './landing/Landing';
 import Navbar from './navbar/Navbar';
-import Box from '@mui/material/Box';
 import MoviesDiscovery from './sidePages/MoviesDiscovery.jsx';
 import TvDiscovery from './sidePages/TvDiscovery.jsx';
 import SearchPage from './search/SearchPage.jsx';
 import CinemaDetailsPage from './detailsPages/cinemaDetails/CinemaDetailsPage.jsx';
-import { Routes, Route, Outlet } from 'react-router-dom';
 import ActorPage from './detailsPages/actorDetails/ActorPage.jsx';
 import RatingView from './sidePages/RatingView.jsx';
 import ComingSoon from './sidePages/ComingSoon.jsx';

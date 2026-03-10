@@ -1,12 +1,14 @@
-import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
-import MovieCard from "../landing/MovieCard";
-import Grid from '@mui/material/Grid';
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import StarIcon from '@mui/icons-material/Star';
-import { getAllRatings } from "../utils/ratingStorage";
 import { useEffect, useState } from "react";
+
+import { Link } from "react-router-dom";
+
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import StarIcon from '@mui/icons-material/Star';
+
+import MovieCard from "../landing/MovieCard";
+
+import { getAllRatings } from "../utils/ratingStorage";
+
 export default function RatingView() {
     const [movies, setMovies] = useState([]);
     useEffect(() => {

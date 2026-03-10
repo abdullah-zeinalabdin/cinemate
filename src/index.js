@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-/* MUI Imports */
+
+import { store } from './redux/store.jsx';
+import { Provider } from 'react-redux';
+
+import { BrowserRouter } from 'react-router-dom';
+
 import { ThemeProvider } from '@mui/material/styles';
 import  theme from './theme/theme.jsx';
-/* === MUI Imports === */
-/* Font Weights */
+
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/900.css';
@@ -16,14 +17,11 @@ import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/900.css';
-/* === Font Weights === */
-/* Redux Toolkit Setup */
-import { store } from './redux/store.jsx';
-import { Provider } from 'react-redux';
-/* === Redux Toolkit Setup === */
-/* Import React Router */
-import { BrowserRouter } from 'react-router-dom';
-/* === Import React Router === */
+
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

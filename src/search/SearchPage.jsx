@@ -1,11 +1,11 @@
-/* MUI Imports */
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-/* === MUI Imports === */
-import MovieSection from "./MovieSection";
 import { useSelector } from "react-redux";
-import SearchBar from "./SearchBar";
+
+import { Stack, Typography } from "@mui/material";
+
 import GlobalError from "../GlobalError";
+import MovieSection from "./MovieSection";
+import SearchBar from "./SearchBar";
+
 export default function SearchPage() {
     const movies = useSelector((state) => state.cinemate.search['list']);
     const isLoadingSearch = useSelector((state) => state.cinemate.isLoading.listsearch);

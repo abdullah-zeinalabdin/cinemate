@@ -1,6 +1,6 @@
-import Stack from "@mui/material/Stack";
+import { Stack, Typography } from "@mui/material";
+
 import CastCard from "./CastCard";
-import Typography from "@mui/material/Typography";
 
 export default function CastContainer() {
     return (

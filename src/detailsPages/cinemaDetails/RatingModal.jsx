@@ -1,12 +1,10 @@
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import StarIcon from '@mui/icons-material/Star';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
 import { useSelector } from 'react-redux';
+
+import { Box, Button, ButtonGroup, Modal, Stack, Typography } from "@mui/material";
+import StarIcon from '@mui/icons-material/Star';
+
 import { ratingModalStyles } from '../../Styles';
+
 export default function RatingModal({open, handleClose, setRating, handleRatingClick}) {
     const cinemaName = useSelector((state) => state.cinemate?.cinemaDetails?.title || state.cinemate?.cinemaDetails?.name)
     return (

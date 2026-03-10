@@ -1,12 +1,17 @@
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { useState } from "react";
-import { useParams } from "react-router-dom"
+
 import { useSelector } from "react-redux";
-import RatingModal from "./RatingModal";
+
+import { useParams } from "react-router-dom";
+
+import { Skeleton, Stack, Typography } from "@mui/material";
+
 import { ratingBlocksStyles } from "../../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
+import RatingModal from "./RatingModal";
+
 import { getAllRatings, saveRating } from "../../utils/ratingStorage";
+
 export default function RatingBlock({label, variant = 'default', icon: Icon, ratingLabel, iconVariant = 'iconDefault'}) {
     const [open, setOpen] = useState(false);
     const [rating, setRating] = useState(null);
@@ -16,7 +21,7 @@ export default function RatingBlock({label, variant = 'default', icon: Icon, rat
     const poster = useSelector((state) => state.cinemate?.cinemaDetails?.poster_path);
     const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);
     /* Local Storage */
-    const existingRating = getAllRatings.storedRatings.find((item) => item.id === id);
+    const existingRating = getAllRatings().storedRatings.find((item) => item.id === id);
     function handleRatingClick(rating) {
         saveRating({id, poster, mediaType, rating: rating})
     }

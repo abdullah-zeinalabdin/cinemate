@@ -1,15 +1,15 @@
-/* MUI Imports */
-import InputAdornment from '@mui/material/InputAdornment';
-import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-/* === MUI Imports === */
 import { useState } from 'react';
-import { useDispatch } from 'react-redux'
+
+import { useDispatch } from 'react-redux';
 import { fetchCinemaDataArr } from '../redux/cinemateSlice';
+
 import { Link } from 'react-router-dom';
+
+import { Button, InputAdornment, Stack, TextField } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
+
 import { searchBarStyles } from '../Styles';
+
 export default function SearchBar() {
     const [searchInput, setSearchInput] = useState('');
     const dispatch = useDispatch();

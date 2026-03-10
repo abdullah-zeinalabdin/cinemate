@@ -1,14 +1,7 @@
+import { Box, Stack, Typography } from "@mui/material";
+import { HomeIcon, MovieCreationIcon, OndemandVideoIcon, PersonIcon, StarIcon } from "@mui/icons-material";
+
 import NavItem from './NavItem';
-/* MUI Imports */
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import HomeIcon from '@mui/icons-material/Home';
-import MovieCreationIcon from '@mui/icons-material/MovieCreation';
-import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import StarIcon from '@mui/icons-material/Star';
-import PersonIcon from '@mui/icons-material/Person';
-import Box from '@mui/material/Box';
-/* === MUI Imports === */
 
 export default function Navbar() {
     let navArr = [

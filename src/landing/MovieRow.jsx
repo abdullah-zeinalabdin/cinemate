@@ -1,7 +1,9 @@
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import MovieCardContainer from "./MovieCardContainer";
 import { Fragment } from "react";
+
+import { Stack, Typography } from "@mui/material";
+
+import MovieCardContainer from "./MovieCardContainer";
+
 export default function MovieRow({movieRowArr}) {    
     return (
         <Stack direction='column' spacing={2}>

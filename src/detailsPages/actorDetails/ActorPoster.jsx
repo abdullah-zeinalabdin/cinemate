@@ -1,7 +1,9 @@
-import Box from "@mui/material/Box"
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
+
+import { Box, Skeleton } from "@mui/material";
+
 import { cinemaImgContainerStyles, cinemaImgStyles } from "../../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
 export default function ActorPoster() {
     const poster = useSelector((state) => state.cinemate?.actorDetails?.profile_path);
     const isLoadingPoster = useSelector((state) => state.cinemate.isLoading.actorDetails);

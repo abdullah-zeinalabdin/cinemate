@@ -1,13 +1,12 @@
-/* MUI Imports */
-import Stack from "@mui/material/Stack";
-/* === MUI Imports === */
-import SearchBar from "../search/SearchBar";
-import MovieRow from "./MovieRow";
-/* Redux Imports */
+import { useEffect } from "react";
+
 import { useDispatch, useSelector} from 'react-redux';
 import { fetchCinemaDataArr } from "../redux/cinemateSlice";
-import { useEffect } from "react";
-/* === Redux Imports === */
+
+import Stack from "@mui/material/Stack";
+
+import MovieRow from "./MovieRow";
+import SearchBar from "../search/SearchBar";
 
 export default function Landing() {
     const popularCinema = useSelector((state) => {

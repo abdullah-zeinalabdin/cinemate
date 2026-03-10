@@ -27,7 +27,7 @@ let theme = createTheme({
         }
     },
     typography: {
-        fontFamily: 'Intes sans-serif',
+        fontFamily: 'Inter, sans-serif',
         h1: {
             fontFamily: 'poppins',
             fontWeight: 700,

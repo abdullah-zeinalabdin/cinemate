@@ -1,8 +1,10 @@
-import Stack from "@mui/material/Stack";
-import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import { useSelector } from "react-redux";
+
+import Stack from "@mui/material/Stack";
+import { StarIcon, StarOutlineIcon } from "@mui/icons-material";
+
 import RatingBlock from "./RatingBlock";
+
 export default function Ratings() {
     const TMDBRating = useSelector((state) => state.cinemate?.cinemaDetails?.vote_average);
     return (

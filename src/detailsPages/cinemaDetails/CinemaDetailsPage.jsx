@@ -1,13 +1,18 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import { fetchCinemaDataObj } from "../../redux/cinemateSlice";
+
 import { useParams } from "react-router-dom";
-import Stack from "@mui/material/Stack";
-import CinemaOverview from "./CinemaOveview";
-import Box from "@mui/material/Box";
-import CastContainer from "../castDetails/CastContainer";
+
+import { Box, Stack } from "@mui/material";
+
 import { heroBackdropStyles } from "../../Styles";
+
+import CinemaOverview from "./CinemaOveview";
+import CastContainer from "../castDetails/CastContainer";
 import GlobalError from "../../GlobalError";
+
 export default function CinemaDetailsPage() {
     const {mediaType, id} = useParams();
     const dispatch = useDispatch();

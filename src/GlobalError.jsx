@@ -1,6 +1,8 @@
-import ErrorIcon from '@mui/icons-material/Error';
 import { Box, Typography } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+
 import { errorBoxStyles } from './Styles';
+
 export default function GlobalError() {
     return (
         <Box sx={errorBoxStyles}>

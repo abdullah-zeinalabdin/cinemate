@@ -1,7 +1,7 @@
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
-import Skeleton from "@mui/material/Skeleton";
+
+import { Skeleton, Stack, Typography } from "@mui/material";
+
 export default function OverviewSection() {
     const overview = useSelector((state) => state.cinemate.cinemaDetails?.overview);
     const isLoadingDetails = useSelector((state) => state.cinemate.isLoading.cinemaDetails);

@@ -1,6 +1,7 @@
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { Link, useLocation } from 'react-router-dom';
+
+import { Stack, Typography } from "@mui/material";
+
 import { navbarItemStyles } from '../Styles';
 
 export default function NavItem( {icon, label, to} ) {

@@ -1,10 +1,11 @@
-import Stack from "@mui/material/Stack"
-import Typography from "@mui/material/Typography"
-import Button from '@mui/material/Button';
 import { useState } from "react";
+
 import { useSelector } from "react-redux";
+
+import { Button, Skeleton, Stack, Typography } from '@mui/material';
+
 import { actorBioButtonStyles, actorBioStyles } from "../../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
 export default function ActorDetailsSection() {
     const name = useSelector((state) => state.cinemate?.actorDetails?.name);
     const bio = useSelector((state) => state.cinemate?.actorDetails?.biography);

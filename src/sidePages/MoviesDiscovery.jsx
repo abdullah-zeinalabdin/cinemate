@@ -1,9 +1,13 @@
-import Stack from "@mui/material/Stack";
-import MovieRow from "../landing/MovieRow";
+import { useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCinemaDataArr } from "../redux/cinemateSlice";
-import { useEffect } from "react";
-export default function MoviesDisovery() {
+
+import Stack from "@mui/material/Stack";
+
+import MovieRow from "../landing/MovieRow";
+
+export default function MoviesDiscovery() {
     const dispatch = useDispatch();
     const topRatedCinema = useSelector((state) => {
         return state.cinemate?.movies['topRated'];

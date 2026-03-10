@@ -1,10 +1,14 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect} from "react"
-import { fetchCinemaDataObj } from "../../redux/cinemateSlice"
-import { useParams } from "react-router-dom"
+import { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCinemaDataObj } from "../../redux/cinemateSlice";
+
+import { useParams } from "react-router-dom";
+
 import ActorPageHeader from "./ActorPageHeader";
-import ActorMovies from "./ActorMovies"
+import ActorMovies from "./ActorMovies";
 import GlobalError from "../../GlobalError";
+
 export default function ActorPage() {
     const dispatch = useDispatch();
     const { id } = useParams();

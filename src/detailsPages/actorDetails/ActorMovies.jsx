@@ -1,10 +1,13 @@
-import Stack from "@mui/material/Stack"
-import Box from "@mui/material/Box"
-import MovieCard from "../../landing/MovieCard";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Skeleton from "@mui/material/Skeleton";
+
+import { Link } from "react-router-dom";
+
+import { Box, Skeleton, Stack } from '@mui/material';
+
 import { cinemaImgStyles } from "../../Styles";
+
+import MovieCard from "../../landing/MovieCard";
+
 export default function ActorMovies() {
     const movies = useSelector((state) => {
         return state.cinemate?.actorCredits?.cast;

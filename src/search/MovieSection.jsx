@@ -1,10 +1,9 @@
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+
+import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
+
 import { searchResultStyles } from "../Styles";
-import Skeleton from "@mui/material/Skeleton";
+
 export default function MovieSection({title, overview, posterSrc, id, mediaType, isLoading}) {
     return (
         (

@@ -1,9 +1,10 @@
-import Stack from "@mui/material/Stack";
-import MovieCard from "./MovieCard";
-import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-import Skeleton from '@mui/material/Skeleton';
+
+import { Box, Skeleton, Stack } from "@mui/material";
+
 import GlobalError from "../GlobalError";
+import MovieCard from "./MovieCard";
+
 export default function MovieCardContainer({movies = [], mediaType, isLoading, isRejected}) {
     if(isRejected) {
         return <GlobalError />

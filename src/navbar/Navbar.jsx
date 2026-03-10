@@ -39,7 +39,7 @@ export default function Navbar() {
                     ml: 2,
                 }}>
                     <Box component='img' src={tmdbLogo} alt="TMDB" sx={{height: 40, width: 'auto', mb: 2,}}/>
-                    <Typography textAlign='center' color="text.primary">This product uses the TMDB API but is not endorsed or certified by TMDB.</Typography>
+                    <Typography textAlign='center' fontSize={{xs: '0.5rem', sm: '1rem'}} color="text.primary">This product uses the TMDB API but is not endorsed or certified by TMDB.</Typography>
                 </Box>
             </Stack>
         </Stack>

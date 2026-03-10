@@ -14,7 +14,7 @@ import { getAllRatings, saveRating } from "../../utils/ratingStorage";
 
 export default function RatingBlock({label, variant = 'default', icon: Icon, ratingLabel, iconVariant = 'iconDefault'}) {
     const [open, setOpen] = useState(false);
-    const [rating, setRating] = useState(null);
+    const [, setRating] = useState(null);
     const handleOpen = () => {setOpen(true)};
     const handleClose = () => {setOpen(false)};
     const { id, mediaType } = useParams();
